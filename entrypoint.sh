@@ -5,7 +5,7 @@ cd /home/container &&
 
 # Install Exiled
 echo "Installing Exiled"
-./Exiled.Installer-Linux -p /home/container/scp_server --pre-releases
+./Exiled.Installer-Linux --path /home/container/scp_server --pre-releases
 cd /home/container &&
 
 # Update Server
