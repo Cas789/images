@@ -17,7 +17,7 @@ RUN add-apt-repository \
    $(lsb_release -cs) \
    stable"
 RUN apt update \
-	apt -y install docker-ce docker-ce-cli containerd.io
+	&& apt -y install docker-ce docker-ce-cli containerd.io
 
 # Docker Compose
 RUN curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
