@@ -27,5 +27,3 @@ ARG CACHEBUST=1
 COPY ./entrypoint.sh /entrypoint.sh
 
 CMD ["/bin/bash", "/entrypoint.sh"]
-
-
