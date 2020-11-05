@@ -4,14 +4,11 @@ USER root
 RUN echo "Building.."
 
 RUN apt-get update
-RUN apt-get install -y gnupg2
+RUN apt-get install -y gnupg2 apt-transport-https ca-certificates software-properties-common 
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 RUN dpkg --add-architecture i386
 RUN echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | tee /etc/apt/sources.list.d/mono-official-stable.list
-
-RUN apt-get update
-RUN apt-get install -y apt-transport-https ca-certificates software-properties-common 
 
 RUN add-apt-repository multiverse
 
@@ -30,3 +27,5 @@ ARG CACHEBUST=1
 COPY ./entrypoint.sh /entrypoint.sh
 
 CMD ["/bin/bash", "/entrypoint.sh"]
+
+
