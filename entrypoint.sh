@@ -12,7 +12,6 @@ fi
 if [[ ${EXILED_UPDATE} == 1 ]]; then
 	echo "Updating Exiled..."
 	cd /home/container/scpsl &&
-	wget -O /home/container/scpsl/Exiled.Installer-Linux https://github.com/galaxy119/EXILED/releases/latest/download/Exiled.Installer-Linux
 	./Exiled.Installer-Linux -p /home/container/scpsl --pre-releases --exit
 	echo "Update Complete."
 fi
