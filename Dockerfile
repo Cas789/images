@@ -7,12 +7,16 @@ RUN apt-get update
 RUN apt-get install -y gnupg2
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-RUN add-apt-repository multiverse
 RUN dpkg --add-architecture i386
 RUN echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | tee /etc/apt/sources.list.d/mono-official-stable.list
 
 RUN apt-get update
-RUN apt-get install -y apt-transport-https ca-certificates software-properties-common wget curl mono-complete lib32gcc1 tar
+RUN apt-get install -y apt-transport-https ca-certificates software-properties-common 
+
+RUN add-apt-repository multiverse
+
+RUN apt-get update
+RUN apt-get install -y wget curl mono-complete lib32gcc1 tar
 
 RUN adduser --home /home/container container --disabled-password --gecos "" --uid 999
 RUN usermod -a -G container container
